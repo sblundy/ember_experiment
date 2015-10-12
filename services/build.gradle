@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+dependencies {
+  compile project(':model')
+  compile project(':data')
+  compile 'org.springframework:spring-webmvc:4.2.1.RELEASE'
+  compile 'org.springframework.hateoas:spring-hateoas:0.19.0.RELEASE'
+  compile 'org.springframework.data:spring-data-commons:1.11.0.RELEASE'
+  compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.0'
+  compile 'org.slf4j:slf4j-api:1.7.12'
+
+  runtime 'com.fasterxml.jackson.core:jackson-databind:2.5.4' //needed by spring-hateoas
+  runtime 'com.jayway.jsonpath:json-path:2.0.0' //needed by spring-hateoas
+
+  testCompile 'junit:junit:4.12'
+  testCompile 'org.mockito:mockito-all:1.10.19'
+  testCompile 'org.apache.commons:commons-lang3:3.4'
+}
