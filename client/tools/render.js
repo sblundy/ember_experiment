@@ -39,7 +39,7 @@ async function renderPage(page, component) {
   const data = {
     body: ReactDOM.renderToString(component),
   };
-  const file = join(__dirname, '../build', page.file.substr(0, page.file.lastIndexOf('.')) + '.html');
+  const file = join(__dirname, '../build/js', page.file.substr(0, page.file.lastIndexOf('.')) + '.html');
   const html = '<!doctype html>\n' + ReactDOM.renderToStaticMarkup(<Html debug={DEBUG} {...data} />);
   await fs.mkdir(dirname(file));
   await fs.writeFile(file, html);
@@ -47,7 +47,7 @@ async function renderPage(page, component) {
 
 export default task(async function render() {
   const pages = await getPages();
-  const { route } = require('../build/app.node');
+  const { route } = require('../build/js/app.node');
   for (const page of pages) {
     await route(page.path, renderPage.bind(undefined, page));
   }

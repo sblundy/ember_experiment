@@ -37,7 +37,7 @@ const JS_LOADER = {
 // Base configuration
 const config = {
   output: {
-    path: path.join(__dirname, '../build/'),
+    path: path.join(__dirname, '../build/js/'),
     publicPath: '/',
     sourcePrefix: '  ',
   },

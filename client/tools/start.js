@@ -19,10 +19,10 @@ export default async () => {
 
   browserSync({
     server: {
-      baseDir: 'build',
+      baseDir: 'build/js',
 
       middleware: [
-        hygienistMiddleware('build'),
+        hygienistMiddleware('js'),
 
         webpackDevMiddleware(bundler, {
           // IMPORTANT: dev middleware can't access config, so we should
@@ -44,8 +44,8 @@ export default async () => {
     // no need to watch '*.js' here, webpack will take care of it for us,
     // including full page reloads if HMR won't work
     files: [
-      'build/**/*.css',
-      'build/**/*.html',
+      'build/js/**/*.css',
+      'build/js/**/*.html',
     ],
   });
 };
